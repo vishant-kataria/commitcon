@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ====== Custom Theme ====== */
+@theme {
+  --color-space-deep: #050819;
+  --color-space-mid: #0d1238;
+  --color-space-purple: #150d30;
+  --color-neon-pink: #ff2a85;
+  --color-neon-magenta: #e94580;
+  --color-neon-cyan: #00f0ff;
+  --color-neon-blue: #38bdf8;
+  --color-cyber-red: #ff4b4b;
+  --color-cyber-orange: #ff6b35;
+  --color-cyber-gold: #fbbf24;
+  --color-terminal-green: #4ade80;
+  --color-panel-dark: rgba(13, 20, 56, 0.85);
+  --color-panel-border: rgba(56, 189, 248, 0.3);
+
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-terminal: 'VT323', monospace;
+  --font-code: 'Fira Code', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ====== Global Resets ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-space-deep);
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* ====== Pixel Border Utility ====== */
+.pixel-border {
+  border: 3px solid;
+  box-shadow:
+    3px 3px 0px #000,
+    -1px -1px 0px rgba(255,255,255,0.1) inset;
+}
+
+.pixel-border-sm {
+  border: 2px solid;
+  box-shadow: 2px 2px 0px #000;
+}
+
+/* ====== Terminal Prompt ====== */
+.cli-prompt {
+  font-family: var(--font-code);
+  color: var(--color-terminal-green);
+  font-size: 1.1rem;
+}
+
+.cli-prompt::before {
+  content: '$ ';
+  color: var(--color-cyber-gold);
+}
+
+/* ====== Glow effects ====== */
+.glow-pink {
+  text-shadow: 0 0 10px rgba(255, 42, 133, 0.7), 0 0 30px rgba(255, 42, 133, 0.4);
+}
+
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 30px rgba(0, 240, 255, 0.4);
+}
+
+.glow-gold {
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.7), 0 0 30px rgba(251, 191, 36, 0.4);
+}
+
+/* ====== Section Spacing ====== */
+section {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ====== Scrollbar ====== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-space-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon-pink);
+  border-radius: 0;
+}
+
+/* ====== Keyframes ====== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-bounce-down {
+  animation: bounce-down 1.5s ease-in-out infinite;
+}
